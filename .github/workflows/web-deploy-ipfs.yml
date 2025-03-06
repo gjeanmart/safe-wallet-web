@@ -9,6 +9,9 @@ on:
       - packages/**
       - .github/workflows/web-deploy-ipfs.yml
 
+env:
+  GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
