@@ -54,5 +54,5 @@ jobs:
           path-to-deploy: ./apps/web/${{ env.OUT_DIR }}
           storacha-key: ${{ secrets.STORACHA_KEY }}
           storacha-proof: ${{ secrets.STORACHA_PROOF }}
-          pinata-jwt-token: ${{ secrets.PINATA_JWT_TOKEN }}
+          pinata-jwt-token: ${{ secrets.PINATA_JWT }}
           github-token:  ${{ secrets.MY_GITHUB_TOKEN }} # change me - default to ${{ github.token }} 
