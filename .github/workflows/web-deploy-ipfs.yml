@@ -35,17 +35,11 @@ jobs:
           secrets: ${{ toJSON(secrets) }}
           prod: ${{ true }}
 
-      # - name: Set unique output directory name
-      #   run: echo "OUT_DIR=out-$(date +'%Y%m%d-%H%M%S')" >> $GITHUB_ENV
-
-      # - name: Rename out directory with timestamp
-      #   run: mv ./apps/web/out ./apps/web/$OUT_DIR
-
-      # - name: Remove .html extension from all files
-      #   run: |
-      #     for file in $(find ./apps/web/$OUT_DIR -name '*.html' | sed 's|^\./||'); do
-      #       cp ${file%} ${file%.*}
-      #     done
+      - name: Remove .html extension from all files
+        run: |
+          for file in $(find ./apps/web/out -name '*.html' | sed 's|^\./||'); do
+            cp ${file%} ${file%.*}
+          done
 
       - uses: ipfs/ipfs-deploy-action@v1
         name: Deploy to IPFS
